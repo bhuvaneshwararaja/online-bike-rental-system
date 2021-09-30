@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+:root{
+  --bg--primary:#fff;
+  --bg--secondary:#16C79A;
+  --text--primary--heading:#333;
+  --text--para:#fff;
+  --highlighter:#8D2828;
+  --btn--bg:#02475E;
+  --shadow:rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+body {
+  margin: 0;
+  font-family:'Roboto Condensed',sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline:none;
+  /* background:var(--bg--primary); */
+}
+
+nav{
+  background-color:var(--bg--primary);
+  /* box-shadow:var(--shadow); */
+  width:100%;
+  padding:1rem;
+}
+a{
+  color:var(--text--primary--heading);
+}
+
+.leaflet-container{
+  width:90%;
+  height:50vh;
+}
+
+.btn--c{
+  padding:.5rem 2rem;
+  background-color:var(--highlighter);
+  color:var(--bg--primary);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+}
+
+
