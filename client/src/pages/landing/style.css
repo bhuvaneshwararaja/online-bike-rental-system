@@ -1,0 +1,49 @@
+.landing--text{
+    width:inherit;
+    
+}
+.height-100{
+    min-height:100vh;
+}
+.landing--text h1{
+    font-size:4rem;
+    font-weight:500;
+}
+.landing--text p{
+    font-weight:200;
+    font-size:2rem;
+}
+.landing--text img{
+    width:500px;
+}
+
+.highlight{
+    color:var(--highlighter);
+
+}
+
+.down{
+    animation:down-anime 1s infinite alternate;
+    transition:all .5s linear;
+}
+
+
+@keyframes down-anime{
+    from{
+        transform: translateY(10px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+
+.question img{
+    width:400px;
+}
+.question h3{
+    font-size:2rem;
+    /* font-family:var(--text--primary); */
+}
+
+
+
