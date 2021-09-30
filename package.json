@@ -1,0 +1,17 @@
+{
+  "name": "online-bike-rental",
+  "version": "1.0.0",
+  "description": "online bike rental system",
+  "main": "index.js",
+  
+  "author": "Bhuvaneshwara raja,Kousi Krishnan, Ishaq",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.2.2"
+  },
+  "scripts": {
+    "client":"cd client && npm start",
+    "server":"FLASK_APP=server flask run",
+    "start":"concurrently \"yarn client\" \"yarn server\""
+  }
+}
