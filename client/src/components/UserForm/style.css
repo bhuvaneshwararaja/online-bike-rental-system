@@ -1,0 +1,64 @@
+
+.user-card{
+    width:40rem;
+    height:40rem;
+    perspective:2000px;
+
+
+
+}
+.register,.login,.user-card-inner{
+    width:100%;
+    min-height:100%;
+    border-radius:10px;
+}
+.user-card-inner{
+   transform-style:preserve-3d;
+   position:relative;
+   transition: transform 0.6s;
+   box-shadow:var(--shadow);
+
+
+
+
+}
+.register,.login{
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position:absolute;
+    background:white;
+
+}
+
+.register{
+
+}
+.login{
+    transform: rotateY(180deg);
+
+
+}
+/* .user-card:hover .user-card-inner{
+    transform: rotateY(180deg); */
+
+/* } */
+td{
+    padding:1rem;
+    
+    }
+    
+    .form--inp{
+        /* border:2px solid; */
+        width:20rem;
+        padding:.5rem 1rem;
+        border-radius:10px;
+        box-shadow:var(--shadow);
+        outline:none;
+        font-size:1.2rem;
+
+    
+    }
+label{
+    font-size:1.5rem;
+    font-weight:100;
+}
