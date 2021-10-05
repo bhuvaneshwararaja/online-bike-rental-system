@@ -1,0 +1,8 @@
+.logo--wrapper img{
+    width:100px;
+
+}
+.logo--wrapper h1{
+    font-family: 'Lemon', cursive;
+    font-size:2rem;
+}
