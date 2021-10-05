@@ -9,14 +9,14 @@ const Landing = () => {
     console.log(toogleReg)
     return <>
        <div>
-           <div className="landing--text flex flex-col justify-center items-center height-100">
+           <div className="landing--text flex flex-col mt-5 items-center height-100">
                <h1>Welcome to <span className="highlight"> Bike For All</span></h1>
                <p>Meet Your Bikes When You Need</p>
                <img src="./assest/images/landing.png" alt="landing img" />
                <BsChevronDoubleDown className="text-5xl cursor-pointer down"/>
            </div>
            <div className="landing--text height-100 ">
-                <h1 className="text-center">For Whome this APP made ?</h1>
+                <h1 className="text-center">For Whom this APP made ?</h1>
                 <div className="flex items-center question">
                     <div>
                         <h3>Do you want to earn Money ?</h3>
@@ -32,8 +32,10 @@ const Landing = () => {
                     <img src="./assest/images/getbike.png" alt="earning"></img>
                 </div>
            </div>
+
            <div className="height-100 w-full landing--text flex flex-col items-center justify-center">
-               <h1>Register</h1>
+               <h1>Registeration</h1>
+               <p className="mb-5">Register Earn Money or take a Bike near you</p>
             <UserForm/>
             {/* <img src="./assest/images/Empty-street-pana.png" style={{"width": "100%","height": "90vh"}}></img> */}
             
