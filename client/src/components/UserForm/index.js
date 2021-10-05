@@ -20,7 +20,7 @@ const UserForm = () => {
                             <tbody>
                                 <tr>
                                     <td><label>First Name</label></td>
-                                    <td><input type="text" className="form--inp"></input></td>
+                                    <td><input type="text" className="form--inp" ></input></td>
 
                                 </tr>
                                 <tr>
