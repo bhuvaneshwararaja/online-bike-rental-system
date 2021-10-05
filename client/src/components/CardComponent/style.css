@@ -1,0 +1,6 @@
+.card{
+    width:20rem;
+    min-height:25rem;
+    /* border:1px solid ; */
+    box-shadow:var(--shadow);
+}
