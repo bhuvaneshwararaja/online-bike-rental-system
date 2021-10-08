@@ -1,8 +1,17 @@
 .logo--wrapper img{
-    width:100px;
+    width:60px;
 
 }
 .logo--wrapper h1{
     font-family: 'Lemon', cursive;
     font-size:2rem;
+}
+.nav--links li > a{
+    font-weight:400;
+    font-size: 1.3rem;
+    /* color:#fff; */
+}
+.nav--bar{
+    /* background-color:crimson; */
+    height: 4rem;
 }
