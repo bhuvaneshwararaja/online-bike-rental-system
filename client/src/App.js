@@ -1,16 +1,17 @@
 import { BrowserRouter, a, Route, Switch } from "react-router-dom";
 import NavBar from "./components/Navbar/index"
+import BikeRentalHome from "./pages/home";
 import Landing from "./pages/landing"
-import Test from "./pages/test";
+// import Test from "./pages/test";
 function App() {
   return (
     <>
-    <div style={{"width":"90%","margin":"auto"}}>
-    <NavBar />
+    <div style={{"width":"100%","margin":"auto"}}>
+    {/* <NavBar /> */}
        <BrowserRouter>
     <Switch>
       <Route path="/" component={Landing} exact></Route>
-      <Route path="/test" component={Test} exact></Route>
+      <Route path="/user" component={BikeRentalHome} exact></Route>
 
     </Switch>
     </BrowserRouter>
