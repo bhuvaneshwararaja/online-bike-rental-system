@@ -6,7 +6,7 @@ import Landing from "./pages/landing"
 function App() {
   return (
     <>
-    <div style={{"width":"100%","margin":"auto"}}>
+    <div style={{}}>
     {/* <NavBar /> */}
        <BrowserRouter>
     <Switch>
