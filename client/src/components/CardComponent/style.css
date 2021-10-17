@@ -1,7 +1,8 @@
 .card{
-    width:18rem;
-    min-height:20rem;
+    width:90%;
+    height:10rem;
     /* border:1px solid ; */
+    margin:.5rem 2rem;
     border-radius: 10px;
     padding:1rem;
     box-shadow:var(--shadow);
@@ -13,4 +14,9 @@
 }
 .card--content--wrapper p{
  padding: 0.4rem .5rem;
+}
+.card--img--wrapper{
+    width:10rem;
+    height:8rem;
+    background-repeat: round;
 }
