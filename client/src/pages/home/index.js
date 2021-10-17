@@ -2,23 +2,44 @@ import MapComponent from "../../components/MapComponent";
 import NavBar from "../../components/Navbar";
 import CardComponent from "../../components/CardComponent/"
 import { useEffect, useState } from "react";
+import "./style.css"
 
 const BikeRentalHome = () => {
-    // const [address,setAddress] = useState()
-    // useEffect(() => {
-    //     console.log(address)
-    // },[address])
+   const [getAddress,setAddress] = useState()
+   console.log(getAddress)
     return <>
         <NavBar/>
-        <div>
-            <MapComponent />
+        <div className="flex">
+        <div className="w-1/2 ">
+        <div className="cards--section">
             <div>
-                
+            <textarea type="text" className="address--inp" value={getAddress !== undefined ? getAddress:""} placeholder="your address"></textarea>
+            {getAddress !== undefined ? <div className="scroll" style={{"width": "inherit","height": "100vh","overflowY":"auto"}}>
+                <CardComponent/>
+                <CardComponent/>
+                <CardComponent/>
+
+                <CardComponent/>
+                <CardComponent/>
+                <CardComponent/>
+
+
+
+            </div>:<div className="flex flex-col items-center justify-center" style={{"minHeight":"70vh"}}>
+            <h3 className="text-2xl">Click on the map to get your Bike</h3>
+            <img src="./assest/images/nolocation.png" className="nolocation"></img>
+            </div> }
+           
             </div>
         </div>
-        <div>
-            <CardComponent/>
         </div>
+        <div className="w-1/2">
+        <MapComponent setaddress={setAddress}/>
+
+        </div>
+
+        </div>
+       
     </>
 }
 

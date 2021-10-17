@@ -1,0 +1,26 @@
+.cards--section{
+    width: 45%;
+    margin: 0rem 2rem;
+    position:fixed;
+    /* overflow: auto; */
+    height:100vh;
+    /* border:1px solid; */
+    box-shadow:var(--shadow);
+    border-radius: 10px;;
+}
+.address--inp{
+    width: 90%;
+    height: 7rem;
+    margin: 0.5rem 2rem;
+    resize: none;
+    box-shadow: var(--shadow);
+    padding:.5rem 0.5rem;
+    border-radius: 10px;
+    padding:.5rem;
+}
+.t--row{
+    padding:.5rem 0.5rem
+}
+.nolocation{
+    width: 15rem;
+}
