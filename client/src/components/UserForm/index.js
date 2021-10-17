@@ -1,7 +1,28 @@
 import "./style.css"
 import {useState} from "react"
+import {  checkpass,
+    checkusername,
+    checkpassword,
+    checkmail,
+    checkmobile} from "../../Helper/validate"
 const UserForm = () => {
+    const regUser = {
+        firstName:"",
+        email:"",
+        password:"",
+        mobileNo:""
+        
+    }
     const [flip,setFlip] = useState(0)
+    const [newUser,setNewUser] = useState(regUser)
+    function Registration(e){
+        const {name,value} = e.target
+        setNewUser({
+            ...newUser,
+            [name]:value
+        })
+        console.log(newUser)
+    }
     return <>
     
     <div className="user-card">
@@ -20,27 +41,27 @@ const UserForm = () => {
                             <tbody>
                                 <tr>
                                     <td><label>First Name</label></td>
-                                    <td><input type="text" className="form--inp" ></input></td>
+                                    <td><input type="text" className="form--inp" name="firstName" onChange={Registration}></input></td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Email</label></td>
-                                    <td><input type="text" className="form--inp"></input></td>
+                                    <td><input type="text" className="form--inp" name="email" onChange={Registration}></input></td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Password</label></td>
-                                    <td><input type="text" className="form--inp"></input></td>
+                                    <td><input type="text" className="form--inp" name="password" onChange={Registration}></input></td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Confirm-Password</label></td>
-                                    <td><input type="text" className="form--inp"></input></td>
+                                    <td><input type="text" className="form--inp" name="confirmPassword" onChange={Registration}></input></td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Mobile-No</label></td>
-                                    <td><input type="text" className="form--inp"></input></td>
+                                    <td><input type="text" className="form--inp" name="mobileNo" onChange={Registration}></input></td>
 
                                 </tr>
                                 </tbody>
