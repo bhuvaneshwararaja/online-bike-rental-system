@@ -10,6 +10,8 @@ api = Api(app)
     
 # User route functions,
 app.add_url_rule('/user/signup/', view_func=User.sign_up, methods=['POST'])
+app.add_url_rule('/user/signin/', view_func=User.sign_in, methods=['POST'])
+
 
 # Python main function
 if __name__ == '__main__':
