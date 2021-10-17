@@ -13,8 +13,33 @@ const UserForm = () => {
         mobileNo:""
         
     }
+    const existingUser = {
+        email:"",
+        password:""
+    }
     const [flip,setFlip] = useState(0)
     const [newUser,setNewUser] = useState(regUser)
+    const [user,setExistingUser] = useState(existingUser)
+
+    function HandleLoginSubmit(e){
+        e.preventDefault()
+        fetch("/user/signin/",{
+          method: 'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({loginCredential:user})
+      }).then((res) => {return res.json()})
+      .then((res) => {
+        console.log(res)
+        })
+    }
+    function Login(e){
+        const {name,value} = e.target
+        setExistingUser({
+            ...user,
+            [name]:value
+        })
+        console.log(user)
+    }
     function Registration(e){
         const {name,value} = e.target
         setNewUser({
@@ -23,6 +48,18 @@ const UserForm = () => {
         })
         console.log(newUser)
     }
+
+    function HandleUserSubmit(e){
+        e.preventDefault()
+    fetch("/user/signup/",{
+      method: 'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({newUser:newUser})
+  }).then((res) => {return res.json()})
+  .then((res) => {
+    console.log(res)
+    })
+}
     return <>
     
     <div className="user-card">
@@ -46,17 +83,17 @@ const UserForm = () => {
                                 </tr>
                                 <tr>
                                     <td><label>Email</label></td>
-                                    <td><input type="text" className="form--inp" name="email" onChange={Registration}></input></td>
+                                    <td><input type="email" className="form--inp" name="email" onChange={Registration}></input></td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Password</label></td>
-                                    <td><input type="text" className="form--inp" name="password" onChange={Registration}></input></td>
+                                    <td><input type="password" className="form--inp" name="password" onChange={Registration}></input></td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Confirm-Password</label></td>
-                                    <td><input type="text" className="form--inp" name="confirmPassword" onChange={Registration}></input></td>
+                                    <td><input type="password" className="form--inp" name="confirmPassword" onChange={Registration}></input></td>
 
                                 </tr>
                                 <tr>
@@ -67,7 +104,7 @@ const UserForm = () => {
                                 </tbody>
                         </table>
                         <div className="text-center">
-                            <button className="btn--c">Register</button>
+                            <button className="btn--c" onClick={HandleUserSubmit}>Register</button>
                         </div>
                     </form>
                     
@@ -88,19 +125,19 @@ const UserForm = () => {
                                
                                 <tr>
                                     <td><label>Email</label></td>
-                                    <td><input type="text" className="form--inp"></input></td>
+                                    <td><input type="email" className="form--inp" name="email" onChange={Login}></input></td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Password</label></td>
-                                    <td><input type="text" className="form--inp"></input></td>
+                                    <td><input type="password" className="form--inp" name="password" onChange={Login}></input></td>
 
                                 </tr>
                                 
                                 </tbody>
                         </table>
                         <div className="text-center">
-                            <button className="btn--c">Login</button>
+                            <button className="btn--c" onClick={HandleLoginSubmit}>Login</button>
                         </div>
                     </form>
 </div>
