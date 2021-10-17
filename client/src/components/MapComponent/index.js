@@ -1,9 +1,16 @@
 
 import {useState,useEffect} from "react"
 import { MapContainer, TileLayer, Marker, Tooltip,MapConsumer,LayerGroup,Circle, useMapEvents,Popup} from "react-leaflet";
-
+import {useBetween} from "use-between"
+const ShareAddress = () => {
+  const [address,setUseraddress] = useState()
+  return{
+    address,setUseraddress
+  }
+}
+const useSharedAddressState = () => useBetween(ShareAddress)
 export function LocationMarker() {
-   
+   const {address,setUseraddress} = useSharedAddressState()
 
     const [position,setPosition] = useState(null)
     const map = useMapEvents({
@@ -13,7 +20,8 @@ export function LocationMarker() {
         locationfound(e){
             fetch(`https://us1.locationiq.com/v1/reverse.php?key=pk.2a3e1f2f2006da3635308c25d2ea7215&lat=${e.latlng.lat}&lon=${e.latlng.lng}&format=json`)
   .then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => {setUseraddress(data)
+    });
            
             setPosition(e.latlng)
             map.flyTo(e.latlng,map.getZoom())
@@ -41,8 +49,13 @@ export function LocationMarker() {
     )
 }
 
-const MapComponent = () => {
-  // changeAddress("yes")
+const MapComponent = (props) => {
+  console.log(props)
+  const {address,setUseraddress} = useSharedAddressState()
+  let getAddress = address !== undefined ? 
+  props.setaddress(address.display_name)
+    :""
+// console.log(test)
     return <>
     <div className="">
     <MapContainer
@@ -54,7 +67,7 @@ const MapComponent = () => {
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
      
-    <LocationMarker />
+    <LocationMarker setuseraddress={setUseraddress}/>
   </MapContainer>
     </div>
     </>
