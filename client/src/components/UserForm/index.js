@@ -6,10 +6,10 @@ const UserForm = () => {
     
     <div className="user-card">
                 <div className="user-card-inner" style={{"transform": `rotateY(${flip}deg)`}}>
-                <div className="register flex flex-col justify-center items-center">
+                <div className="register flex flex-col  items-center">
                 <div className="flex ">
-    <button className="text-2xl py-2 px-4 m-3 border-b-2 border-red-700 pointer-events-none">Sign up</button>
-    <button className="text-2xl py-2 px-4 m-3  " onClick={(e) => {
+    <button className="text-xl py-2 px-4 m-3 border-b-2 border-red-700 pointer-events-none">Sign up</button>
+    <button className="text-xl py-2 px-4 m-3  " onClick={(e) => {
         e.preventDefault() 
         setFlip(180)
     }}>Login</button>

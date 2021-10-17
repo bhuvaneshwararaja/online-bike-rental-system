@@ -25,7 +25,7 @@ const NavBar = () => {
             
 
            </li>
-           <li className="px-4 py-2">
+           <li className="px-4 py-2 ">
              <a href="#">Logout</a>
             
 
