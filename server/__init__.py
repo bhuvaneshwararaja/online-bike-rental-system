@@ -7,7 +7,7 @@ from user import User
 app = Flask(__name__)
 api = Api(app)
 
-
+    
 # User route functions,
 app.add_url_rule('/user/signup/', view_func=User.sign_up, methods=['POST'])
 

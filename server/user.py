@@ -52,21 +52,21 @@ class User:
 
         return jsonify({"ReplyCode": "1", "ReplyMessage": "OTP sent to your mail", "otp": otp})'''
 
-    # @staticmethod
-    # def sign_in():
-    #     try:
-    #         signinDetails = flask.request.json['loginCredential']
-    #     except:
-    #         return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in json object receive during user signin"})
+    @staticmethod
+    def sign_in():
+        try:
+            signinDetails = flask.request.json['loginCredential']
+        except:
+            return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in json object receive during user signin"})
 
-    #     try:
-    #         result = UserMongo.check_password(signinDetails['email'], signinDetails['password'])
+        try:
+            result = UserMongo.check_password(signinDetails['email'], signinDetails['password'])
             
-    #         if result == 1:
-    #             return jsonify({"ReplyCode": "1", "ReplyMessage": "Login success"})
-    #         else:
-    #             return jsonify({"ReplyCode": "0", "ReplyMessage": "Incorrect Mail or Password"})
-    #     except:
-    #         return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in mongo password retrieval during signin"})
+            if result == 1:
+                return jsonify({"ReplyCode": "1", "ReplyMessage": "Login success"})
+            else:
+                return jsonify({"ReplyCode": "0", "ReplyMessage": "Incorrect Mail or Password"})
+        except:
+            return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in mongo password retrieval during signin"})
 
         # return jsonify({"ReplyCode": "1", "ReplyMessage": "Success"})
