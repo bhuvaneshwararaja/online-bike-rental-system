@@ -2,6 +2,9 @@
 import {useState,useEffect} from "react"
 import { MapContainer, TileLayer, Marker, Tooltip,MapConsumer,LayerGroup,Circle, useMapEvents,Popup} from "react-leaflet";
 import {useBetween} from "use-between"
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import "leaflet-routing-machine";
+import L from "leaflet"
 const ShareAddress = () => {
   const [address,setUseraddress] = useState()
   return{
@@ -10,6 +13,8 @@ const ShareAddress = () => {
 }
 const useSharedAddressState = () => useBetween(ShareAddress)
 export function LocationMarker() {
+  const [test,setTest] = useState(null)
+
    const {address,setUseraddress} = useSharedAddressState()
 
     const [position,setPosition] = useState(null)
@@ -21,25 +26,50 @@ export function LocationMarker() {
             fetch(`https://us1.locationiq.com/v1/reverse.php?key=pk.2a3e1f2f2006da3635308c25d2ea7215&lat=${e.latlng.lat}&lon=${e.latlng.lng}&format=json`)
   .then(response => response.json())
   .then(data => {setUseraddress(data)
+
     });
            
-            setPosition(e.latlng)
-            map.flyTo(e.latlng,map.getZoom())
+            setPosition([e.latlng,{lat: 13.086668115556542, lng: 80.27066230773927},{lat: 13.089803153822029, lng: 80.2749538421631},{lat: 13.078433225134622, lng: 80.27611255645753}])
+          
+    map.flyTo(e.latlng,map.getZoom())
+    if(position !== undefined){
+      L.Routing.control({
+        waypoints: [L.latLng(e.latlng.lat, e.latlng.lng), L.latLng(13.086668115556542, 80.27066230773927)],
+        lineOptions: {
+          styles: [{ color: "#6FA1EC", weight: 4 }]
+        },
+        show: true,
+        addWaypoints: true,
+        routeWhileDragging: true,
+        draggableWaypoints: false,
+        fitSelectedRoutes: true,
+        showAlternatives: false
+      }).addTo(map);
+    }
 
         },
     })
     map.on('click',function(e){
-      if(position !== null) console.log(e.latlng.lat-position.lat)
+     if(position !== null) console.log(e.latlng)
     })
 
     return position === null ? null :(
         <>
-        <Marker position={position}>
+        {position.map((pos,index) => {
+          return <Marker position={[pos.lat,pos.lng]}>
+          <Popup>Your current Location</Popup>
+      </Marker>
+        })}
+        
+        {/* {test !== null ? test.forEach((s,index) => {
+        // {console.log(index)}
+            <Marker position={[position.lat,position.lng]}>
             <Popup>Your current Location</Popup>
         </Marker>
+        }):""} */}
         <LayerGroup>
         <Circle
-          center={position}
+          center={[position[0].lat,position[0].lng]}
           pathOptions={{ color: 'green', fillColor: 'green' }}
           radius={3000}
         />
