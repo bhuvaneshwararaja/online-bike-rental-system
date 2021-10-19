@@ -15,6 +15,7 @@ class User:
     def sign_up():
         try:
             userDetails = flask.request.json['newUser']
+            print(userDetails)
         except:
             return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in json object receive during user signup"})
 
