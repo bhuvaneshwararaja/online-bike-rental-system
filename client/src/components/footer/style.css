@@ -1,0 +1,10 @@
+footer{
+    width: 100%;
+    min-height: 40vh;
+    background-color: #333;
+}
+.footer--links .link a{
+    color:#fff;
+    font-size:1.5rem;
+    font-weight: 300;
+}
