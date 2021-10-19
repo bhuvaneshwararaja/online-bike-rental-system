@@ -13,7 +13,9 @@ const BikeRentalHome = () => {
         <div className="w-1/2 ">
         <div className="cards--section">
             <div>
-            <textarea type="text" className="address--inp" value={getAddress !== undefined ? getAddress:""} placeholder="your address"></textarea>
+            <input type="text" className="address--inp" value={getAddress !== undefined ? getAddress:""} placeholder="current location"></input>
+            <input type="text" className="address--inp"  placeholder="Destination"></input>
+
             {getAddress !== undefined ? <div className="scroll" style={{"width": "inherit","height": "100vh","overflowY":"auto"}}>
                 <CardComponent/>
                 <CardComponent/>
