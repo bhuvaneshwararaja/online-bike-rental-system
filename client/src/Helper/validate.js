@@ -7,8 +7,8 @@ const checkpass = (pass,repass) => {
     }
 }
 const checkusername = (user) => {
-    if(user.length < 5){
-        return "name must be at least 5 characters"
+    if(user.length <= 2){
+        return "name must be at least 2 characters"
     }
     else{
         return true
