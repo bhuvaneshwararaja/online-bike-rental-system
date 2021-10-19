@@ -15,3 +15,24 @@
     /* background-color:crimson; */
     height: 4rem;
 }
+.link{
+    position: relative;
+}
+.link:hover:not(:nth-child(5))::before{
+    content: "";
+    width: 3rem;
+    height:.2rem;
+    background-color:#333;
+    border-radius: 50px;
+    position: absolute;
+    right: 1rem;
+    top:2.5rem;
+}
+.logout{
+    background-color: var(--highlighter);
+    padding: .2rem 1rem;
+    /* font-size:.3rem; */
+    color:#fff;
+    border-radius: 10px;
+    box-shadow:var(--shadow);
+}
