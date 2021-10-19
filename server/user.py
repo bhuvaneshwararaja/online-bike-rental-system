@@ -19,12 +19,12 @@ class User:
         except:
             return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in json object receive during user signup"})
 
-        try:
-            key = "".join(random.choices("abcdefghijklmnopqrstuvwxyz1234567890!#$%&'()*+,-./:;<=>?@[\]^_`{|}~", k=6))
-            userDetails['password'] = str((hashlib.md5((userDetails['password']+key).encode())).hexdigest())+key
-            UserMongo.add_user(userDetails)
-        except:
-            return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in mongo user signup creation"})
+        # try:
+        key = "".join(random.choices("abcdefghijklmnopqrstuvwxyz1234567890!#$%&'()*+,-./:;<=>?@[\]^_`{|}~", k=6))
+        userDetails['password'] = str((hashlib.md5((userDetails['password']+key).encode())).hexdigest())+key
+        UserMongo.add_user(userDetails)
+        # except:
+            # return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in mongo user signup creation"})
 
         return jsonify({"ReplyCode": "1", "ReplyMessage": "Success"})
 
