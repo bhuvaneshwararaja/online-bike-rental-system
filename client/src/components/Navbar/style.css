@@ -17,7 +17,13 @@
 }
 .link{
     position: relative;
+
 }
+.active--link::before,
+.link:hover:not(:nth-child(5))::before{
+    transition: all .5s linear;
+}
+.active--link::before,
 .link:hover:not(:nth-child(5))::before{
     content: "";
     width: 3rem;
