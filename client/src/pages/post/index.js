@@ -27,6 +27,44 @@ const PostBike = () => {
 
     }
     console.log(postDetails)
+    const uploadCloudinary = async (e) => {
+        const files = e.target.files[0]
+        console.log(files)
+
+        let formData = new FormData();
+        formData.append('file',files);
+        formData.append('upload_preset','o2e0xoco')
+     await fetch("https://api.cloudinary.com/v1_1/da8ygcsci/image/upload",{
+            method:"POST",
+            body:formData
+        }).then((res) => {return res.json()})
+        .then((res) => {
+            
+            // console.log(files.type.contains('image'))
+            console.log(res)
+            if(files.type.includes('image')){
+                setPostDetails({
+                    ...postDetails,
+                    bikeImage:res.secure_url,
+                })
+            }
+            else{
+                setPostDetails({
+                    ...postDetails,
+                    bikeDoc:res.secure_url,
+                })
+            }
+            console.log(postDetails)
+           
+            // setProduct({
+            //     ...,
+            //     "productImage":[...product.productImage,res.secure_url]
+            // })
+            // e.target.classList.add("bg-green-100")
+        })
+}
+   
+    
 
     return <>
         <NavBar/>
@@ -81,11 +119,11 @@ const PostBike = () => {
                         </tr>
                         <tr>
                         <td><label>BikeImage</label></td>
-                            <td><input type="file" className="form--inp" name="bikeImage" onChange={getPostBike}></input></td>
+                            <td><input type="file" className="form--inp" name="bikeImage" onChange={uploadCloudinary}></input></td>
                         </tr>
                         <tr>
                         <td><label>Document(pdf)</label></td>
-                            <td><input type="file" className="form--inp" name="bikeDoc" onChange={getPostBike}></input></td>
+                            <td><input type="file" className="form--inp" name="bikeDoc" onChange={uploadCloudinary}></input></td>
                         </tr>
                         <tr>
                             <button className="btn--c">Upload</button>
