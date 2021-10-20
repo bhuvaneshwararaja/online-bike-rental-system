@@ -28,31 +28,7 @@ class User:
 
         return jsonify({"ReplyCode": "1", "ReplyMessage": "Success"})
 
-    '''@staticmethod
-    def email_verification():
-        try:
-            mailVerify = flask.request.json
-
-            result = UserMongo.check_email_existence(mailVerify['emailVerify']['email'])
-            if result == 0:
-                return jsonify({"ReplyCode": "0", "ReplyMessage": "Error. Email already exists"})
-        except:
-            return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in json object receive during email verification"})
-
-        otp = randint(100000, 999999)
-        try:
-            text = f"Hi {mailVerify['emailVerify']['name']},\n\nYour OTP is {otp}.\nValid only for 5 minutes.\n\nWith Love,\ncKart Team"
-            subject = "cKart Email Verification - reg"
-            message = 'Subject: {}\n\n{}'.format(subject, text)
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login("lovebreaker007@gmail.com", "loveandsex")
-            server.sendmail("lovebreaker007@gmail.com", mailVerify['emailVerify']['email'], message)
-        except:
-            return jsonify({"ReplyCode": "0", "ReplyMessage": "Error. Email verification failed"})
-
-        return jsonify({"ReplyCode": "1", "ReplyMessage": "OTP sent to your mail", "otp": otp})'''
-
+ 
     @staticmethod
     def sign_in():
         try:
