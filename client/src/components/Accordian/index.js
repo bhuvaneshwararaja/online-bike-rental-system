@@ -1,6 +1,6 @@
 import "./style.css"
 import "./control.js"
-import { useEffect,useState } from "react";
+import { useState } from "react";
 
 const Accordian = () => {
 const [acc,setAcc] = useState([1,0,0])
