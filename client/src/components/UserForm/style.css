@@ -1,16 +1,42 @@
 
 .user-card{
-    width:40rem;
+    width:30rem;
     height:33rem;
     perspective:2000px;
+    position:relative;
+    top:-8.3rem;
 
 
 
 }
+
+.register::before,.login::before,.user-card-inner::before{
+    position: absolute;
+    top: 0rem;
+    left: -30px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 35px 30px;
+    border-color: transparent transparent #042e4f  transparent;
+}
+.register::after,.login::after,.user-card-inner::after{
+    position: absolute;
+    top: 0;
+    right: -30px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 35px 0 0 30px;
+    border-color: transparent transparent transparent #042e4f;
+}
 .register,.login,.user-card-inner{
     width:100%;
     min-height:100%;
-    border-radius:10px;
+    /* border-radius:10px; */
+    background-color:crimson;
 }
 .user-card-inner{
    transform-style:preserve-3d;
@@ -26,15 +52,18 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     position:absolute;
-    background:white;
+    background:#042e4f ;
 
 }
 
 .register{
+    padding: .5rem;
 
 }
 .login{
     transform: rotateY(180deg);
+    padding: .5rem;
+
 
 
 }
@@ -60,5 +89,9 @@ td{
     }
 label{
     font-size:1rem;
+    color:#fff;
     font-weight:100;
+}
+.t--btn{
+    color:#fff;
 }

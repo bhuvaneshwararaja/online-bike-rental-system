@@ -60,7 +60,7 @@ const UserForm = () => {
         const {name,value} = e.target
         if(e.target.name === "firstName"){
            let check = checkusername(e.target.value);
-           if(check == true){
+           if(check === true){
                setauthError(error)
                saveState(name,value)
            }
@@ -72,7 +72,7 @@ const UserForm = () => {
         }
         else if(e.target.name === "email"){
             let check = checkmail(e.target.value);
-            if(check == true){
+            if(check === true){
                 setauthError(error)
                 saveState(name,value)
             }
@@ -84,7 +84,7 @@ const UserForm = () => {
          }
          else if(e.target.name === "password"){
             let check = checkpassword(e.target.value);
-            if(check == true){
+            if(check === true){
                 setauthError(error)
                 saveState(name,value)
             }
@@ -96,7 +96,7 @@ const UserForm = () => {
          }
          else if(e.target.name === "confirmPassword"){
             let check = checkpass(e.target.value,newUser.password);
-            if(check == true){
+            if(check === true){
                 setauthError(error)
             }
             else{
@@ -107,7 +107,7 @@ const UserForm = () => {
          }
          else if(e.target.name === "mobileNo"){
             let check = checkmobile(e.target.value);
-            if(check == true){
+            if(check === true){
                 setauthError(error)
                 saveState(name,value)
             }
@@ -137,8 +137,8 @@ const UserForm = () => {
                 <div className="user-card-inner" style={{"transform": `rotateY(${flip}deg)`}}>
                 <div className="register flex flex-col  items-center">
                 <div className="flex ">
-    <button className="text-xl py-2 px-4 m-3 border-b-2 border-red-700 pointer-events-none">Sign up</button>
-    <button className="text-xl py-2 px-4 m-3  " onClick={(e) => {
+    <button className="text-xl py-2 px-4 m-3 border-b-2 border-yellow-700 pointer-events-none t--btn">Sign up</button>
+    <button className="text-xl py-2 px-4 m-3  t--btn" onClick={(e) => {
         e.preventDefault() 
         setFlip(180)
     }}>Login</button>
@@ -150,14 +150,14 @@ const UserForm = () => {
                                 <tr>
                                     <td><label>First Name</label></td>
                                     <td className="flex flex-col"><input type="text" className="form--inp" name="firstName" onChange={Registration}></input>
-                                    <p style={{color:"crimson","width":"100%"}}>{authError.nameError != "" ? authError.nameError : ""}</p>
+                                    <p style={{color:"crimson","width":"100%"}}>{authError.nameError !== "" ? authError.nameError : ""}</p>
                                     </td>
 
                                 </tr>
                                 <tr>
                                     <td><label>Email</label></td>
                                     <td className="flex flex-col"><input type="email" className="form--inp" name="email" onChange={Registration}></input>
-                                    <p style={{color:"crimson","width":"100%"}}>{authError.mailError != "" ? authError.mailError : ""}</p>
+                                    <p style={{color:"crimson","width":"100%"}}>{authError.mailError !== "" ? authError.mailError : ""}</p>
                                     
                                     </td>
 
@@ -165,7 +165,7 @@ const UserForm = () => {
                                 <tr>
                                     <td><label>Password</label></td>
                                     <td className="flex flex-col"><input type="password" className="form--inp" name="password" onChange={Registration}></input>
-                                    <p style={{color:"crimson","width":"100%"}}>{authError.passwordError != "" ? authError.passwordError : ""}</p>
+                                    <p style={{color:"crimson","width":"100%"}}>{authError.passwordError !== "" ? authError.passwordError : ""}</p>
                                     
                                     </td>
 
@@ -173,7 +173,7 @@ const UserForm = () => {
                                 <tr>
                                     <td><label>Confirm-Password</label></td>
                                     <td className="flex flex-col"><input type="password" className="form--inp" name="confirmPassword" onChange={Registration}></input>
-                                    <p style={{color:"crimson","width":"100%"}}>{authError.mismatch != "" ? authError.mismatch : ""}</p>
+                                    <p style={{color:"crimson","width":"100%"}}>{authError.mismatch !== "" ? authError.mismatch : ""}</p>
                                     
                                     </td>
 
@@ -181,7 +181,7 @@ const UserForm = () => {
                                 <tr>
                                     <td><label>Mobile-No</label></td>
                                     <td className="flex flex-col"><input type="text" className="form--inp" name="mobileNo" onChange={Registration}></input>
-                                    <p style={{color:"crimson","width":"100%"}}>{authError.mobileError != "" ? authError.mobileError : ""}</p>
+                                    <p style={{color:"crimson","width":"100%"}}>{authError.mobileError !== "" ? authError.mobileError : ""}</p>
                                     
                                     </td>
 
@@ -197,11 +197,11 @@ const UserForm = () => {
 </div>
 <div className="login flex flex-col justify-center items-center">
     <div className="flex ">
-    <button className="text-2xl py-2 px-4 m-3" onClick={(e) => {
+    <button className="text-2xl py-2 px-4 m-3 t--btn" onClick={(e) => {
         e.preventDefault() 
         setFlip(0)
     }}>Sign up</button>
-    <button className="text-2xl py-2 px-4 m-3  border-b-2 border-red-700 pointer-events-none">Login</button>
+    <button className="text-2xl py-2 px-4 m-3 t--btn  border-b-2 border-yellow-700 pointer-events-none">Login</button>
 
     </div>
 <form>
