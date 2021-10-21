@@ -9,7 +9,7 @@
   --bg--secondary:#16C79A;
   --text--primary--heading:#333;
   --text--para:#fff;
-  --highlighter:crimson;
+  --highlighter:rgb(255, 169, 49);
   --btn--bg:#02475E;
   --shadow:rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
@@ -34,8 +34,8 @@ a{
 }
 
 .leaflet-container{
-  width:50%;
-  height:100vh;
+  width:40%;
+  height:80vh;
   position: fixed;
 }
 
