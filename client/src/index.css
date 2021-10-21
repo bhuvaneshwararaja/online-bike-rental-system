@@ -34,8 +34,8 @@ a{
 }
 
 .leaflet-container{
-  width:40%;
-  height:80vh;
+  width:50%;
+  height:100vh;
   position: fixed;
 }
 
