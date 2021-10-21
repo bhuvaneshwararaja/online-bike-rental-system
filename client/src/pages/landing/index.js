@@ -1,7 +1,6 @@
 import "./style.css"
-
 import UserForm from "../../components/UserForm";
-import { Parallax, Background } from "react-parallax";
+import { Parallax } from "react-parallax";
 import NavBar from "../../components/Navbar"
 import Fade from 'react-reveal/Fade';
 import { FaMotorcycle,FaRupeeSign,FaRoute } from "react-icons/fa";
