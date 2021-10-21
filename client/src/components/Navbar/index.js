@@ -1,4 +1,3 @@
-import {useState} from "react"
 import "./style.css"
 const NavBar = () => {
   let path = window.location.pathname

@@ -1,6 +1,6 @@
 
-import {useState,useEffect} from "react"
-import { MapContainer, TileLayer, Marker, Tooltip,MapConsumer,LayerGroup,Circle, useMapEvents,Popup} from "react-leaflet";
+import {useState} from "react"
+import { MapContainer, TileLayer, Marker, LayerGroup,Circle, useMapEvents,Popup} from "react-leaflet";
 import {useBetween} from "use-between"
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
@@ -13,7 +13,6 @@ const ShareAddress = () => {
 }
 const useSharedAddressState = () => useBetween(ShareAddress)
 export function LocationMarker() {
-  const [test,setTest] = useState(null)
 
    const {address,setUseraddress} = useSharedAddressState()
 
@@ -85,7 +84,6 @@ const MapComponent = (props) => {
   let getAddress = address !== undefined ? 
   props.setaddress(address.display_name)
     :""
-// console.log(test)
     return <>
     <div className="">
     <MapContainer
