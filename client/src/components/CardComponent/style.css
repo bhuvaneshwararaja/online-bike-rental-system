@@ -1,6 +1,6 @@
 .card{
-    width:90%;
-    height:10rem;
+    width:75%;
+    min-height:10rem;
     /* border:1px solid ; */
     margin:.5rem 2rem;
     border-radius: 10px;
@@ -9,8 +9,9 @@
 }
 .card--content--wrapper h1{
     text-align: center;
+    width:100%;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 .card--content--wrapper p{
  padding: 0.4rem .5rem;

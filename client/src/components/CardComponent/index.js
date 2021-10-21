@@ -13,10 +13,14 @@ const CardComponent = () => {
                     <p>OwnerName:Ishaq</p>
                     <p>Contact:7686534278</p>
                 </div>
-            </div>
-            <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center">
                 <button className="btn--c">TakeBike</button>
             </div>
+            <div className="flex flex-col justify-center">
+                <button className="btn--c">Enquire</button>
+            </div>
+            </div>
+            
         </div>
     </>
 }
