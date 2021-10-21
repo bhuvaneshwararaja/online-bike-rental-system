@@ -11,6 +11,6 @@ class Bike:
             bikeDetails = flask.request.json['postDetails']
         except:
             return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in json object receive during bike details"})
-        bike_mongo.add_bike(bikeDetails)
+        BikeMongo.add_bike(bikeDetails)
         return jsonify({"ReplyCode": "1", "ReplyMessage": "Insertion successful"})
 
