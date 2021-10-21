@@ -20,11 +20,11 @@
 
 }
 .active--link::before,
-.link:hover:not(:nth-child(5))::before{
+.link:hover:not(:nth-child(6))::before{
     transition: all .5s linear;
 }
 .active--link::before,
-.link:hover:not(:nth-child(5))::before{
+.link:hover:not(:nth-child(6))::before{
     content: "";
     width: 3rem;
     height:.2rem;
