@@ -56,7 +56,7 @@ export function LocationMarker() {
         <>
         {position.map((pos,index) => {
           return <Marker position={[pos.lat,pos.lng]}>
-          <Popup>Your current Location</Popup>
+          <Popup style={{width:"20rem",height:"20rem"}}>Your current Location</Popup>
       </Marker>
         })}
         

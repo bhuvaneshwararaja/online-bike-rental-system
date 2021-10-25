@@ -122,7 +122,7 @@ const UserForm = () => {
 
     function HandleUserSubmit(e){
         e.preventDefault()
-    fetch("/user/signup/",{
+    fetch("user/signup/",{
       method: 'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({newUser:newUser})

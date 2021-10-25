@@ -1,7 +1,7 @@
 import "./style.css"
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const CardComponent = () => {
+const CardComponent = (props) => {
     return <>
         <div className="card mt-4 mb-4 mx-2 flex justify-between">
             
@@ -11,7 +11,11 @@ const CardComponent = () => {
             </div>
             <div className="absolute img--overlay flex flex-col justify-center items-center">
                 <h1 className="text-white text-2xl">RS.300/hr</h1>
-                <button className="btn--c">Enquire</button>
+                <button className="btn--c" onClick={(e) => {
+                    e.preventDefault();
+                    props.settopval("10%")
+                    props.setoverlay("block")
+                }}>Enquire</button>
                 <button className="btn--c">Route</button>
             </div>
             </div>

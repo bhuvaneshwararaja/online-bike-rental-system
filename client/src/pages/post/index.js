@@ -126,7 +126,10 @@ const PostBike = () => {
                             <td><input type="file" className="form--inp" name="bikeDoc" onChange={uploadCloudinary}></input></td>
                         </tr>
                         <tr>
-                            <button className="btn--c">Upload</button>
+                            <button className="btn--c" onClick={(e) => {
+                                e.preventDefault();
+                               
+                            }}>Upload</button>
                         </tr>
                     </table>
                 </form>
