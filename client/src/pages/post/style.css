@@ -1,0 +1,19 @@
+.post--container{
+    width: 70%;
+    min-height: 70vh;
+    margin: auto;
+    box-shadow:var(--shadow);
+    padding:.5rem;
+}
+.post--inp{
+    border: 1px solid;
+    width: 20rem;
+    padding:.5rem .5rem;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+}
+.post--table > tr > td >label{
+    color:black;
+    font-size:1.3rem;
+    font-weight: bold;
+}

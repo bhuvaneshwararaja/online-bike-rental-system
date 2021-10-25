@@ -11,7 +11,7 @@ const BikeRentalHome = () => {
    const [overlay,setOverlay] = useState("none")
     return <>
         <NavBar/>
-      {/* <Modal topval={topVal} /> */}
+      <Modal topval={topVal} />
         <div className="flex height-100">
         <div className="w-1/2">
         <MapComponent setaddress={setAddress}/>

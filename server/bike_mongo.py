@@ -19,7 +19,7 @@ class BikeMongo:
     @staticmethod
     def add_bike(bikeDetails):
         dataBase = BikeMongo.credential()
-        collection = dataBase["BikeDetails"]
+        collection = dataBase["bikeDetails"]
         collection.insert_one(bikeDetails)
     @staticmethod
     def checkBikeExistence(bikeNumber):
@@ -28,4 +28,9 @@ class BikeMongo:
         for details in enumerate(collection.find({"bikeNumber":bikeNumber})):
             return 0
         return 1
+    @staticmethod
+    def Find_All():
+        database = BikeMongo.credential()
+        collection = database["bikeDetails"]
+        return collection.find({})
     
