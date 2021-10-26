@@ -19,9 +19,17 @@ class Bike:
         return jsonify({"ReplyCode": "1", "ReplyMessage": "Insertion successful"})
     @staticmethod
     def Get_Bike_Details():
+<<<<<<< HEAD
         database = BikeMongo.credential()
         print(database)
         collection = database["bikeDetails"]
         
         return "1"
 
+=======
+       bike = BikeMongo.Find_All()
+    #    print(jsonify(bike))
+       return bike
+    def singleBike(userid):
+        return BikeMongo.userBike(userid)
+>>>>>>> 0ef0a92 (database module')

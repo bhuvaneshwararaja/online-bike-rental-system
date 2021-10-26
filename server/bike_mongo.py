@@ -34,6 +34,16 @@ class BikeMongo:
     def Find_All():
         database = BikeMongo.credential()
         collection = database["bikeDetails"]
+<<<<<<< HEAD
         print(collection.find().pretty())
         return list(collection.find().pretty())
+=======
+        print(collection.find({}))
+        return list(collection.find({}))
+    @staticmethod
+    def userBike(userid):
+        database = BikeMongo.credential()
+        collection = database["bikeDetails"]
+        return list(collection.find({"_id":userid}))
+>>>>>>> 0ef0a92 (database module')
     

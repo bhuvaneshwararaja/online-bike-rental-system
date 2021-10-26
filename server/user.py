@@ -37,9 +37,14 @@ class User:
             return jsonify({"ReplyCode": "0", "ReplyMessage": "Error in json object receive during user signin"})
 
         try:
+<<<<<<< HEAD
             result,userid = UserMongo.check_password(signinDetails
             ['email'], signinDetails['password'])
             print(result,userid)
+=======
+            result = UserMongo.check_password(signinDetails['email'], signinDetails['password'])
+            # print(result,us)
+>>>>>>> 0ef0a92 (database module')
             if result == 1:
                 return jsonify({"ReplyCode": "1", "ReplyMessage": "Login success","userid":userid})
 
