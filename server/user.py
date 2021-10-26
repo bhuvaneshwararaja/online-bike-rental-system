@@ -38,9 +38,10 @@ class User:
 
         try:
             result = UserMongo.check_password(signinDetails['email'], signinDetails['password'])
+            print(result)
             
-            if result == 1:
-                return jsonify({"ReplyCode": "1", "ReplyMessage": "Login success",})
+            if result[0] == 1:
+                return jsonify({"ReplyCode": "1", "ReplyMessage": "Login success","userid":result[1]})
 
             else:
                 return jsonify({"ReplyCode": "0", "ReplyMessage": "Incorrect Mail or Password"})
