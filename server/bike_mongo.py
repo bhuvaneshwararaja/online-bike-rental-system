@@ -1,6 +1,7 @@
 import pymongo
 from bson.objectid import ObjectId
 import hashlib
+from flask import jsonify
 
 from pymongo import database
 from pymongo import collection
@@ -33,5 +34,8 @@ class BikeMongo:
     def Find_All():
         database = BikeMongo.credential()
         collection = database["bikeDetails"]
-        return collection.find({})
+        bikeDetails = {'bikeDetails': {}}
+        for bikedetails in enumerate(collection.find({})):
+            bikeDetails[bikeDetails][str(bikedetails[1].pop('_id'))] = bikedetails[1]
+        return bikeDetails
     

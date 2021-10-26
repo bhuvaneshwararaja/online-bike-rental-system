@@ -49,7 +49,7 @@ export function LocationMarker() {
         },
     })
     map.on('click',function(e){
-     if(position !== null) console.log(e.latlng)
+     if(position !== null){ console.log(e.latLng)}
     })
 
     return position === null ? null :(
