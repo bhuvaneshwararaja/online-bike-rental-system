@@ -27,16 +27,19 @@ def findBike():
     result = bike_mongo.Find_All()
     return result
 
-@app.route('/user/signup',methods = ['POST'])
+@app.route('/user/signup/',methods = ['POST'])
 def signup():
     userDetails = flask.request.json['newUser']
-    result = user_mongo.add_user()
-    print(result)
-    return result
+    result = user_mongo.add_user(userDetails)
+    if result == 1:
+        return jsonify({"ReplyCode": "1", "ReplyMessage": "success"})
+
+    else:
+        return jsonify({"ReplyCode": "0", "ReplyMessage": "FAIL"})
 
 
-@app.route('/user/signin',methods = ['POST'])
-def login():
+@app.route('/user/signin/',methods = ['POST'])
+def signin():
     signinDetails = flask.request.json['loginCredential']
     result = user_mongo.check_password(signinDetails['email'], signinDetails['password'])
     if result == 1:
