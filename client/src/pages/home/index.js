@@ -1,17 +1,23 @@
 import MapComponent from "../../components/MapComponent";
 import NavBar from "../../components/Navbar";
 import CardComponent from "../../components/CardComponent/"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css"
 import Modal from "../../components/Modal";
 const BikeRentalHome = () => {
    const [getAddress,setAddress] = useState()
+   useEffect(() => {
+    fetch("/bike").then((res) => {return res.json()})
+    .then((res) => {
+      console.log(res)
+      })
+   },[])
    console.log(getAddress)
    const [topVal,setTopVal] = useState("-100%")
    const [overlay,setOverlay] = useState("none")
     return <>
         <NavBar/>
-      <Modal topval={topVal} />
+      {/* <Modal topval={topVal} /> */}
         <div className="flex height-100">
         <div className="w-1/2">
         <MapComponent setaddress={setAddress}/>

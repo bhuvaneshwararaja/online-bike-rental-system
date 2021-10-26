@@ -15,7 +15,7 @@ const NavBar = () => {
     
            </li>
            <li  className={`px-4 py-2 link ${path === "/postbike" ? "active--link":""}`}>
-             <a href="#">PostBike</a>
+             <a href="/postbike">PostBike</a>
             
 
            </li>

@@ -34,8 +34,6 @@ class BikeMongo:
     def Find_All():
         database = BikeMongo.credential()
         collection = database["bikeDetails"]
-        bikeDetails = {'bikeDetails': {}}
-        for bikedetails in enumerate(collection.find({})):
-            bikeDetails[bikeDetails][str(bikedetails[1].pop('_id'))] = bikedetails[1]
-        return bikeDetails
+        print(collection.find().pretty())
+        return list(collection.find().pretty())
     
