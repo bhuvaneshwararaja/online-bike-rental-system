@@ -16,6 +16,13 @@ class Bike:
         return jsonify({"ReplyCode": "1", "ReplyMessage": "Insertion successful"})
     @staticmethod
     def Get_Bike_Details():
+<<<<<<< HEAD
        bike = BikeMongo.Find_All()
        print(jsonify(bike))
 
+=======
+       return BikeMongo.Find_All()
+    def singleBike(userid):
+        return BikeMongo.userBike(userid)
+        
+>>>>>>> f2ac573 (database)

@@ -34,8 +34,9 @@ class UserMongo:
     def check_password(mail, password):
         dataBase = UserMongo.credential()
         collection = dataBase["user_details"]
-        for details in enumerate(collection.find({"email": mail})):
-            print(details[1])
+        user = list(collection.find({"email": mail}))
+        for details in user:
+            print(str(details['_id']))
             if details[1]['password'][:-6] == (hashlib.md5((password+details[1]['password'][-6:]).encode())).hexdigest():
-                return 1
+                return 1,str(details['_id'])
         return 0
