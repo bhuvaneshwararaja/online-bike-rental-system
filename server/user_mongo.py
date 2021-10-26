@@ -38,9 +38,5 @@ class UserMongo:
         for details in user:
             # print(str(details['_id']))
             if details[1]['password'][:-6] == (hashlib.md5((password+details[1]['password'][-6:]).encode())).hexdigest():
-<<<<<<< HEAD
-                return [1,str(details['_id'])]
-=======
                 return 1
->>>>>>> 0ef0a92 (database module')
         return 0

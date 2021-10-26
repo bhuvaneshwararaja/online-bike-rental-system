@@ -6,44 +6,39 @@ from flask import jsonify
 from pymongo import database
 from pymongo import collection
 
-class BikeMongo:
-    def __init__(self):
-        pass
 
-    @staticmethod
-    def credential():
-        (USER_NAME, PASSWORD, DB_NAME) = ("admin", "admin", "BikeSystem")
-        # CONNECTION_URL = f"mongodb+srv://{USER_NAME}:{PASSWORD}@bike-system.1k34p.mongodb.net/{DB_NAME}?retryWrites=true&w=majority"
-        CONNECTION_URL = "mongodb://localhost:27017/"
-        client = pymongo.MongoClient(CONNECTION_URL)
-        dataBase = client[DB_NAME]
-        return dataBase
-    @staticmethod
-    def add_bike(bikeDetails):
-        dataBase = BikeMongo.credential()
-        collection = dataBase["bikeDetails"]
-        collection.insert_one(bikeDetails)
-    @staticmethod
-    def checkBikeExistence(bikeNumber):
-        database = BikeMongo.credential()
-        collection = database["bikeDetails"]
-        for details in enumerate(collection.find({"bikeNumber":bikeNumber})):
-            return 0
-        return 1
-    @staticmethod
-    def Find_All():
-        database = BikeMongo.credential()
-        collection = database["bikeDetails"]
-<<<<<<< HEAD
-        print(collection.find().pretty())
-        return list(collection.find().pretty())
-=======
-        print(collection.find({}))
-        return list(collection.find({}))
-    @staticmethod
-    def userBike(userid):
-        database = BikeMongo.credential()
-        collection = database["bikeDetails"]
-        return list(collection.find({"_id":userid}))
->>>>>>> 0ef0a92 (database module')
+
+   
+def credential():
+    (USER_NAME, PASSWORD, DB_NAME) = ("admin", "admin", "BikeSystem")
+    # CONNECTION_URL = f"mongodb+srv://{USER_NAME}:{PASSWORD}@bike-system.1k34p.mongodb.net/{DB_NAME}?retryWrites=true&w=majority"
+    CONNECTION_URL = "mongodb://localhost:27017/"
+    client = pymongo.MongoClient(CONNECTION_URL)
+    dataBase = client[DB_NAME]
+    return dataBase
+  
+def add_bike(bikeDetails):
+    dataBase = credential()
+    collection = dataBase["bikeDetails"]
+    collection.insert_one(bikeDetails)
+  
+def checkBikeExistence(bikeNumber):
+    database = credential()
+    collection = database["bikeDetails"]
+    for details in enumerate(collection.find({"bikeNumber":bikeNumber})):
+        return 0
+    return 1
+    
+def Find_All():
+    database = credential()
+    collection = database["bikeDetails"]
+    result = list(collection.find({}))
+    return result
+
+
+    
+def userBike(userid):
+    database = credential()
+    collection = database["bikeDetails"]
+    return list(collection.find({"_id":userid}))
     
